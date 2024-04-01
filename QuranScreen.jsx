@@ -171,9 +171,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "#fff",
     marginBottom: 10,
+    borderBottomWidth: 1,
+    borderColor: "#ccc",
   },
   darkSurahItem: {
     backgroundColor: "#333",
+    borderBottomWidth: 0,
   },
   surahNumberContainer: {
     marginRight: 10,
@@ -194,7 +197,9 @@ const styles = StyleSheet.create({
   },
   surahNameContainer: {
     flex: 1,
+    flexDirection: "row",
     alignItems: "center",
+    justifyContent: "space-between",
   },
   surahName: {
     fontSize: 18,
