@@ -15,6 +15,9 @@ const QuranScreen = () => {
   const [tab, setTab] = useState("Surah");
   const [darkMode, setDarkMode] = useState(false);
 
+  const ishaTime = "19:30";
+  const location = "Lahore, Pakistan";
+
   const filteredItems =
     tab === "Surah" ? QuranData.surahNames : QuranData.juzzNames;
   const filteredSurahs = filteredItems.filter(
@@ -33,6 +36,17 @@ const QuranScreen = () => {
 
   return (
     <View style={[styles.container, darkMode && styles.darkContainer]}>
+      <View style={[styles.hero, darkMode && styles.darkHero]}>
+        <Text style={[styles.heroSubText, darkMode && styles.darkHeroSubText]}>
+          Isha Time
+        </Text>
+        <Text style={[styles.heroText, darkMode && styles.darkHeroText]}>
+          {ishaTime}
+        </Text>
+        <Text style={[styles.heroSubText, darkMode && styles.darkHeroSubText]}>
+          {location}
+        </Text>
+      </View>
       <View style={styles.header}>
         <TextInput
           style={[styles.searchInput, darkMode && styles.darkSearchInput]}
@@ -112,11 +126,38 @@ const QuranScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#f5f5f5",
     padding: 10,
   },
   darkContainer: {
-    backgroundColor: "#000",
+    backgroundColor: "#333",
+  },
+  hero: {
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    padding: 20,
+    marginBottom: 10,
+  },
+  darkHero: {
+    backgroundColor: "#444",
+  },
+  heroText: {
+    fontSize: 32,
+    fontWeight: "bold",
+    textAlign: "center",
+    color: "#333",
+  },
+  darkHeroText: {
+    color: "#ddd",
+  },
+  heroSubText: {
+    fontSize: 16,
+    textAlign: "center",
+    color: "#555",
+    fontWeight: "bold",
+  },
+  darkHeroSubText: {
+    color: "#999",
   },
   header: {
     flexDirection: "row",
@@ -126,7 +167,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     flex: 1,
-    backgroundColor: "#eee",
+    backgroundColor: "#fff",
     paddingVertical: 8,
     paddingHorizontal: 12,
     borderRadius: 10,
@@ -150,7 +191,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ccc",
   },
   darkTabButton: {
-    backgroundColor: "#333",
+    backgroundColor: "#555",
   },
   tabText: {
     fontSize: 16,
@@ -175,7 +216,7 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
   },
   darkSurahItem: {
-    backgroundColor: "#333",
+    backgroundColor: "#444",
     borderBottomWidth: 0,
   },
   surahNumberContainer: {
